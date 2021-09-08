@@ -22,4 +22,13 @@ describe('Haiku', () => {
     expect(haiku.checkLines()).toEqual(false);
   });
   
+  test('checkLines should split strings into individual word array into this.line1 ', () => {
+    const haiku = new Haiku(['text line one', 'text line 2','text line 3']);
+    console.log(haiku);
+    haiku.checkLines();
+    console.log(haiku);
+    const line1Length = haiku.line1.length;
+    expect(line1Length).toEqual(3);
+  });
+  
 });

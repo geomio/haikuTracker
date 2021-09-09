@@ -9,7 +9,7 @@ $(document).ready(function() {
     event.preventDefault();
     let userPoemInput = $("#userPoemArea").val();
     let haikuObject = new Haiku(userPoemInput.split("\n"))
-    haikuObject.checkLines();
+    haikuObject.linesAndWordSplitter();
   });  
 });
 

@@ -9,7 +9,7 @@ export default class Haiku{
     this.line3SyllableCount = 0
 }
 
-checkLines() {
+linesAndWordSplitter() {
   if (this.text.length == 3) {
     console.log('A Haiku has three lines');
     this.line3 = this.text[2].split(" ");
@@ -26,6 +26,28 @@ checkLines() {
     console.log('there are to many lines');
     return false;
   }
+ }
+ 
+ maxWordCounter() {
+   if (this.line1.length > 5) {
+     console.log("Line 1 has to many syllables - more then 5 are present, use 5 or less");
+     return false;
+   } if (this.line2. length > 7) {
+    console.log("Line 2 has to many syllables - more then 5 are present, use 5 or less");
+    return false;
+   }if (this.line3.length > 5) {
+     console.log("line three has two many syllables 5 are needed");
+     return false;
+   } if (this.line1.length <= 5) {
+     console.log("line1 word count passes second check");
+     return true;
+   }if (this.line2.length <= 7) {
+     console.log('line2 passes first check');
+     return true;
+   }if (this.line3.length <= 5) {
+     console.log('line3 passes first check');
+     return true;
+   }
  }
  
 //  splitLinesToWordArrays() {

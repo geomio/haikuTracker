@@ -44,4 +44,15 @@ describe('Haiku', () => {
     expect(haiku.maxWordCounter(line3Length)).toEqual(true);
   });
   
+  test('maxWordCounter should check to see if lines1 = 5 or less words, line2 = 7 or less words, and line3 = 5 or less words', () => {
+    const haiku = new Haiku(['text line one has five and one', 'text line must have up to seven here is too much','the text is at five this also is bad']);
+    haiku.linesAndWordSplitter();
+    const line1Length = haiku.line1.length;
+    const line2Length = haiku.line2.length;
+    const line3Length = haiku.line3.length;
+    expect(haiku.maxWordCounter(line1Length)).toEqual(false);
+    expect(haiku.maxWordCounter(line2Length)).toEqual(false);
+    expect(haiku.maxWordCounter(line3Length)).toEqual(false);
+  });
+  
 });

@@ -50,11 +50,33 @@ linesAndWordSplitter() {
    }
  }
  
-//  splitLinesToWordArrays() {
-//    this.line1 = this.text[2].split(" ");
-//    this.line2 = this.text[1].split(" ");
-//    this.line3 = this.text[0].split(" ");
-
-//  }
+ syllableCounter(word) {
+   //by brian from stack exchange
+   // on https://stackoverflow.com/questions/5686483/how-to-compute-number-of-syllables-in-a-word-in-javascript
+  word = word.toLowerCase();
+  let t_some = 0;
+  let beauCount = 0;
+  if(word.length>3)
+      {
+      if(word.substring(0,4)=="some")
+          {
+          word = word.replace("some","");
+          t_some++;
+          }else if(word.substring(0,4)=="beau") {
+            word = word.replace("beau","");
+            beauCount++;
+          }
+      }
+  word = word.replace(/(?:[^laeiouy]|ed|[^laeiouy]e)$/, '');   
+  word = word.replace(/^y/, '');                                 
+  //return word.match(/[aeiouy]{1,2}/g).length;   
+  let syl = word.match(/[aeiouy]{1,2}/g);
+  console.log(syl);
+  if(syl)
+  {
+      //console.log(syl);
+      return syl.length+t_some + beauCount;
+  }
+}
  
 };

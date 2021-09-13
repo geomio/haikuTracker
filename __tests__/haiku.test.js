@@ -55,8 +55,17 @@ describe('Haiku', () => {
     expect(haiku.maxWordCounter(line3Length)).toEqual(false);
   });
 
+  test('vowelCount  should count vowels with y in a string', () => {
+    const haiku = new Haiku();
+    expect(haiku.vowelCountForY("any")).toEqual(2);
+  });
+
   test('syllableCounter should count total syllables in a word', () => {
     const haiku = new Haiku(['text line the has five', 'text line must have up to seven', 'the text is at five']);
+    expect(haiku.syllableCounter("amy")).toEqual(2);
+    expect(haiku.syllableCounter("the")).toEqual(1);
+    expect(haiku.syllableCounter("yellow")).toEqual(2);
+    expect(haiku.syllableCounter("yes")).toEqual(1);
     expect(haiku.syllableCounter("any")).toEqual(2);
     expect(haiku.syllableCounter("louis")).toEqual(2);
     expect(haiku.syllableCounter("continue")).toEqual(3);
@@ -65,6 +74,7 @@ describe('Haiku', () => {
     expect(haiku.syllableCounter("bountiful")).toEqual(3);
     expect(haiku.syllableCounter("pitiful")).toEqual(3);
     expect(haiku.syllableCounter("beautiful")).toEqual(3);
+    expect(haiku.syllableCounter("beautifully")).toEqual(4);
   });
 
   test('lineSyllableCounter should count total syllables in a line and add it to this.lineSyllableCount1-3', () => {

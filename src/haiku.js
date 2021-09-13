@@ -50,13 +50,32 @@ export default class Haiku {
     }
   }
 
+  vowelCountForY(str) {
+    let vowelCount = 0;
+    const vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+    for (let char of str) {
+      if (vowels.includes(char)) {
+        vowelCount++
+      }
+    }
+    return vowelCount
+  }
+
   syllableCounter(word) {
-    //by brian from stack exchange
+    //moddified from brian on stack exchange
     // on https://stackoverflow.com/questions/5686483/how-to-compute-number-of-syllables-in-a-word-in-javascript
     word = word.toLowerCase();
     let t_some = 0;
     let beauCount = 0;
-    if (word.length <= 3) { return 1; }
+    if (word.length <= 3 && this.vowelCountForY(word) == 1) {
+      return 1;
+    } else if (word.length <= 3 && this.vowelCountForY(word) == 2 && word.endsWith("y")) {
+      return 2;
+    }
+    if (word.substring(0) == "Y") {
+      word = word.replace("y")
+      //subtract1
+    }
     if (word.length > 3) {
       if (word.substring(0, 4) == "some") {
         word = word.replace("some", "");
@@ -91,6 +110,19 @@ export default class Haiku {
     this.line3.forEach((word) => {
       this.line3SyllableCount += this.syllableCounter(word);
     });
+  }
+
+  haikuLineCheck() {
+    if (this.line1SyllableCount == 5) {
+      console.log("Line one has 5 syllables")
+      return true;
+    } else if (this.line1SyllableCount < 5) {
+      console.log("Line one less then 5 syllables")
+      return false;
+    } else if (this.line1SyllableCount > 5) {
+      console.log("Line one is more than 5 syllables")
+      return false;
+    }
   }
 
 };

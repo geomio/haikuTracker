@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
   <title>Haiku syllable counter</title>
 </head>
+
 <body>
   <div class="container">
     <div class="row" id="mainArea1">
-      <form id="formArea"> 
-        <textarea id ="userPoemArea" name="userPoem" id="" cols="30" rows="10"></textarea>
+      <form id="formArea">
+        <textarea id="userPoemArea" name="userPoem" id="" cols="30" rows="10"></textarea>
         <input id="submitButton" type="submit" value="Submit">
       </form>
     </div>
+    <div class="row" id="userTextArea">
+      <div class="well" id="userPoemWell">
+        <h2>Your Poem</h2>
+        <ui>
+          <li>Line 1:<span id="line1Insert"></span> Syllable count:<span id="line1Syllables"></span></li>
+          <li>Line 2:<span id="line2Insert"></span> Syllable count:<span id="line2Syllables"></span></li>
+          <li>Line 3:<span id="line3Insert"></span> Syllable count:<span id="line3Syllables"></span></li>
+        </ui>
+      </div>
+    </div>
   </div>
 </body>
+
 </html>

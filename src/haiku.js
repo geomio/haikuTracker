@@ -112,7 +112,7 @@ export default class Haiku {
     });
   }
 
-  haikuLineCheck() {
+  haikuLine1Check() {
     if (this.line1SyllableCount == 5) {
       console.log("Line one has 5 syllables")
       return true;
@@ -122,6 +122,42 @@ export default class Haiku {
     } else if (this.line1SyllableCount > 5) {
       console.log("Line one is more than 5 syllables")
       return false;
+    };
+  }
+
+  haikuLine2Check() {
+    if (this.line2SyllableCount == 7) {
+      console.log("Line one has 7 syllables")
+      return true;
+    } else if (this.line2SyllableCount < 7) {
+      console.log("Line one less then 7 syllables")
+      return false;
+    } else if (this.line2SyllableCount > 7) {
+      console.log("Line one is more than 7 syllables")
+      return false;
+    };
+  }
+
+  haikuLine3Check() {
+    if (this.line3SyllableCount == 5) {
+      console.log("Line one has 5 syllables")
+      return true;
+    } else if (this.line3SyllableCount < 5) {
+      console.log("Line one less then 5 syllables")
+      return false;
+    } else if (this.line3SyllableCount > 5) {
+      console.log("Line one is more than 5 syllables")
+      return false;
+    };
+  }
+
+  haikuCheck() {
+    if (this.haikuLine1Check() == true && this.haikuLine2Check() == true && this.haikuLine3Check() == true) {
+      console.log("this is a haiku syllables of lines are 5, 7, 5");
+      return true
+    } else if (this.haikuLine1Check() == false && this.haikuLine2Check() == false && this.haikuLine3Check() == false) {
+      console.log("this is not a haiku lines need to equal 5, 7, 5 syllables")
+      return false
     }
   }
 

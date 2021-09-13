@@ -86,4 +86,46 @@ describe('Haiku', () => {
     expect(haiku.line2SyllableCount).toEqual(7);
     expect(haiku.line3SyllableCount).toEqual(5);
   });
+
+  test('haikuLineCheck1, should count total syllables in a line 1', () => {
+    const haiku = new Haiku(['text line the has five', 'text line must have the seven', 'the text is at five']);
+    haiku.linesAndWordSplitter();
+    haiku.lineSyllableCounter();
+    expect(haiku.haikuLine1Check()).toEqual(true);
+  });
+
+  test('haikuLineCheck2, should count total syllables in a line 2', () => {
+    const haiku = new Haiku(['text line the has five', 'text line must have the seven', 'the text is at five']);
+    haiku.linesAndWordSplitter();
+    haiku.lineSyllableCounter();
+    expect(haiku.haikuLine2Check()).toEqual(true);
+  });
+
+  test('haikuLineCheck3, should count total syllables in a line 3', () => {
+    const haiku = new Haiku(['text line the has five', 'text line must have the seven', 'the text is at five']);
+    haiku.linesAndWordSplitter();
+    haiku.lineSyllableCounter();
+    expect(haiku.haikuLine3Check()).toEqual(true);
+  });
+
+  test('haikuCheck, should see if lines are a haiku', () => {
+    const haiku = new Haiku(['text line the has five', 'text line must have the seven', 'the text is at five']);
+    haiku.linesAndWordSplitter();
+    haiku.lineSyllableCounter();
+    haiku.haikuLine1Check()
+    haiku.haikuLine2Check()
+    haiku.haikuLine3Check()
+    expect(haiku.haikuCheck()).toEqual(true);
+  });
+
+  test('haikuCheck, should see if lines are not a haiku', () => {
+    const haiku = new Haiku(['text line the has five five', 'text line must have the seven wow', 'the text is at five yeah']);
+    haiku.linesAndWordSplitter();
+    haiku.lineSyllableCounter();
+    haiku.haikuLine1Check()
+    haiku.haikuLine2Check()
+    haiku.haikuLine3Check()
+    expect(haiku.haikuCheck()).toEqual(false);
+  });
+
 });
